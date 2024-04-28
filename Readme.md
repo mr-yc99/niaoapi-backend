@@ -9,7 +9,7 @@
 
 项目架构图：
 
-![architecture.png](architecture.png)
+![img_1.png](architecture.png)
 
 项目目录：
 
