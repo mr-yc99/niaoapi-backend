@@ -1,0 +1,38 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: after_route
+#          uri: https://baidu.com
+#          predicates:
+#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+#        - id: host_route
+#          uri: https://baidu.com
+#          predicates:
+#            - Host=localhost
+#        - id: before_route
+#          uri: https://example.org
+#          predicates:
+#            - Before=2017-01-20T17:42:47.789-07:00[America/Denver]
+
+#不确定地址可以使用动态路由
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_path_route
+          uri: http://localhost:8123
+          predicates:
+            - Path=/api/**
+# 以下配置指定了应用的名称、使用的协议（Dubbo）、注册中心的类型（Nacos）和地址
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: 22223
+  registry:
+    address: nacos://localhost:8848
+
+
+
